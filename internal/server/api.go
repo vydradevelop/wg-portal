@@ -279,7 +279,7 @@ func (s *ApiServer) DeleteUser(c *gin.Context) {
 		return
 	}
 
-	if err := s.s.DeleteUser(*user); err != nil {
+	if err := s.s.HardDeleteUser(*user); err != nil {
 		c.JSON(http.StatusInternalServerError, ApiError{Message: err.Error()})
 		return
 	}
